@@ -1,6 +1,6 @@
 package example;
 
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.stream.IntStream;
 
 public class GuessNumber {
@@ -10,6 +10,9 @@ public class GuessNumber {
         int a = 0;
         int b = 0;
         if (inputNumber.length != 4) {
+            return "Wrong Input,Input again";
+        }
+        if (!hasNoRepeat(inputNumber)) {
             return "Wrong Input,Input again";
         }
         for (int index = 0; index < inputNumber.length; index++) {
@@ -23,5 +26,13 @@ public class GuessNumber {
             }
         }
         return a + "A" + b + "B";
+    }
+
+    public static boolean hasNoRepeat(int[] array) {
+        HashSet<Integer> hashSet = new HashSet<Integer>();
+        for (int value : array) {
+            hashSet.add(value);
+        }
+        return hashSet.size() == array.length;
     }
 }
