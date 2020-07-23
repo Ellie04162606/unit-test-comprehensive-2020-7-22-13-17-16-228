@@ -65,4 +65,16 @@ public class GuessNumberTest {
         //then
         assertEquals("0A2B", result);
     }
+
+    @Test
+    void should_return_2A0B_when_guess_number_given_sectional_correct_number_in_correct_place() {
+        //given
+        int[] inputNumber = {1, 9, 3, 8};
+        GuessNumber guessNumberGame = new GuessNumber();
+
+        //when
+        String result = guessNumberGame.guessNumber(inputNumber);
+        //then
+        assertEquals("2A0B", result);
+    }
 }
