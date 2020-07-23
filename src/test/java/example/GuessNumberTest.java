@@ -79,7 +79,7 @@ public class GuessNumberTest {
     }
 
     @Test
-    void should_return_wrong_display_with_invalid_number_which_length_is_shorter_than_4(){
+    void should_return_wrong_display_with_invalid_number_which_length_is_shorter_than_4() {
         //given
         int[] inputNumber = {1, 9};
         GuessNumber guessNumberGame = new GuessNumber();
@@ -91,9 +91,21 @@ public class GuessNumberTest {
     }
 
     @Test
-    void should_return_wrong_display_with_invalid_number_which_length_is_longer_than_4(){
+    void should_return_wrong_display_with_invalid_number_which_length_is_longer_than_4() {
         //given
-        int[] inputNumber = {1, 9,3,4,6};
+        int[] inputNumber = {1, 9, 3, 4, 6};
+        GuessNumber guessNumberGame = new GuessNumber();
+
+        //when
+        String result = guessNumberGame.guessNumber(inputNumber);
+        //then
+        assertEquals("Wrong Input,Input again", result);
+    }
+
+    @Test
+    void should_return_wrong_display_with_has_the_same_number() {
+        //given
+        int[] inputNumber = {1, 1, 3, 4};
         GuessNumber guessNumberGame = new GuessNumber();
 
         //when
