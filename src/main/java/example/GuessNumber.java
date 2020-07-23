@@ -14,7 +14,7 @@ public class GuessNumber {
         if (isCompletelyMisMatchAnswer(inputNumber)) {
             return "0A0B";
         }
-        return result;
+        return isAllNumberCorrectWithCompletelyMisMatchPlace(inputNumber);
     }
 
     public boolean isCorrectAnswer(int[] inputNumber) {
@@ -35,5 +35,21 @@ public class GuessNumber {
             }
         }
         return a == 0 && b == 0;
+    }
+
+    public String isAllNumberCorrectWithCompletelyMisMatchPlace(int[] inputNumber) {
+        int a = 0;
+        int b = 0;
+        for (int index = 0; index < inputNumber.length; index++) {
+            if (inputNumber[index] == answer[index]) {
+                a++;
+            } else {
+                int finalIndex = index;
+                if (IntStream.of(answer).anyMatch(x -> x == inputNumber[finalIndex])) {
+                    b++;
+                }
+            }
+        }
+        return a + "A" + b + "B";
     }
 }
