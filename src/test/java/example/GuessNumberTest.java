@@ -53,4 +53,16 @@ public class GuessNumberTest {
         //then
         assertEquals("1A3B", result);
     }
+
+    @Test
+    void should_return_0A2B_when_guess_number_given_sectional_correct_number_with_completely_disMatch_place() {
+        //given
+        int[] inputNumber = {3, 4, 6, 8};
+        GuessNumber guessNumberGame = new GuessNumber();
+
+        //when
+        String result = guessNumberGame.guessNumber(inputNumber);
+        //then
+        assertEquals("0A2B", result);
+    }
 }
