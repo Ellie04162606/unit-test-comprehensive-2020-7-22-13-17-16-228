@@ -29,4 +29,16 @@ public class GuessNumberTest {
         //then
         assertEquals("0A0B",result);
     }
+
+    @Test
+    void should_return_0A4B_when_guess_number_given_all_correct_number_with_completely_incorrect_place(){
+        //given
+        int[] inputNumber = {4,3,2,1};
+        GuessNumber guessNumberGame = new GuessNumber();
+
+        //when
+        String result = guessNumberGame.guessNumber(inputNumber);
+        //then
+        assertEquals("0A4B",result);
+    }
 }
