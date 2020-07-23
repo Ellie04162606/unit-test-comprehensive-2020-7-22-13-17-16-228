@@ -11,7 +11,7 @@ public class GenerateAnswerTest {
         GenerateAnswer generateAnswer = new GenerateAnswer();
 
         //when
-        int[] result = generateAnswer.genzerate();
+        int[] result = generateAnswer.generate();
         //then
         assertEquals(4, result.length);
     }
