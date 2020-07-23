@@ -15,6 +15,9 @@ public class GuessNumber {
         if (!hasNoRepeat(inputNumber)) {
             return "Wrong Input,Input again";
         }
+        if (hasNumberOutOfRange(inputNumber)) {
+            return "Wrong Input,Input again";
+        }
         for (int index = 0; index < inputNumber.length; index++) {
             if (inputNumber[index] == answer[index]) {
                 a++;
@@ -26,6 +29,13 @@ public class GuessNumber {
             }
         }
         return a + "A" + b + "B";
+    }
+
+    private boolean hasNumberOutOfRange(int[] inputNumber) {
+        for (int number : inputNumber) {
+            return number < 0 || number > 9;
+        }
+        return false;
     }
 
     public static boolean hasNoRepeat(int[] array) {
