@@ -7,7 +7,15 @@ public class GameProcess {
         return times;
     }
 
+    public void setTimes(int times) {
+        this.times = times;
+    }
+
     public String playGame(int times, int[] inputNumber) {
-        return null;
+        String result = "";
+        if (times > 6) {
+            return "The game is over";
+        }
+        return result;
     }
 }

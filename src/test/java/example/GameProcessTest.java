@@ -11,10 +11,10 @@ public class GameProcessTest {
         //given
         int[] inputNumber ={1,3,4,5};
         GameProcess gameProcess = new GameProcess();
-        int times = gameProcess.getTimes();
+        gameProcess.setTimes(7);
 
         //when
-        String result = gameProcess.playGame(times,inputNumber);
+        String result = gameProcess.playGame(gameProcess.getTimes(),inputNumber);
 
         //then
         assertEquals("The game is over", result);
