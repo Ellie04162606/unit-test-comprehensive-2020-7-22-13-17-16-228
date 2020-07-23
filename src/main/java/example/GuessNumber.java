@@ -4,9 +4,15 @@ import java.util.HashSet;
 import java.util.stream.IntStream;
 
 public class GuessNumber {
-    int[] answer = {1, 2, 3, 4};
+    //    int[] answer = {1, 2, 3, 4};
+    GenerateAnswer generateAnswer;
+
+    public GuessNumber(GenerateAnswer generateAnswer) {
+        this.generateAnswer = generateAnswer;
+    }
 
     public String guessNumber(int[] inputNumber) {
+        int[] answer = generateAnswer.generate();
         int a = 0;
         int b = 0;
         if (inputNumber.length != 4) {

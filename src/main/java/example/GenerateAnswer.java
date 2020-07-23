@@ -2,6 +2,7 @@ package example;
 
 public class GenerateAnswer {
 
+
     public int[] generate() {
         int length = 4;
         int maxNum = 9;

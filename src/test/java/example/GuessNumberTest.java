@@ -1,16 +1,21 @@
 package example;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 public class GuessNumberTest {
+    public int[] answer = {1, 2, 3, 4};
 
     @Test
     void should_return_4A0B_when_guess_number_given_correct_number() {
         //given
         int[] inputNumber = {1, 2, 3, 4};
-        GuessNumber guessNumberGame = new GuessNumber();
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -22,7 +27,9 @@ public class GuessNumberTest {
     void should_return_0A0B_when_guess_number_given_completely_mismatched_number() {
         //given
         int[] inputNumber = {5, 6, 7, 8};
-        GuessNumber guessNumberGame = new GuessNumber();
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -34,7 +41,9 @@ public class GuessNumberTest {
     void should_return_0A4B_when_guess_number_given_all_correct_number_with_completely_incorrect_place() {
         //given
         int[] inputNumber = {4, 3, 2, 1};
-        GuessNumber guessNumberGame = new GuessNumber();
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -46,7 +55,9 @@ public class GuessNumberTest {
     void should_return_1A3B_when_guess_number_given_all_correct_number_with_sectional_correct_place() {
         //given
         int[] inputNumber = {1, 4, 2, 3};
-        GuessNumber guessNumberGame = new GuessNumber();
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -58,7 +69,9 @@ public class GuessNumberTest {
     void should_return_0A2B_when_guess_number_given_sectional_correct_number_with_completely_disMatch_place() {
         //given
         int[] inputNumber = {3, 4, 6, 8};
-        GuessNumber guessNumberGame = new GuessNumber();
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -70,7 +83,9 @@ public class GuessNumberTest {
     void should_return_2A0B_when_guess_number_given_sectional_correct_number_in_correct_place() {
         //given
         int[] inputNumber = {1, 9, 3, 8};
-        GuessNumber guessNumberGame = new GuessNumber();
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -82,7 +97,9 @@ public class GuessNumberTest {
     void should_return_wrong_display_with_invalid_number_which_length_is_shorter_than_4() {
         //given
         int[] inputNumber = {1, 9};
-        GuessNumber guessNumberGame = new GuessNumber();
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -94,7 +111,9 @@ public class GuessNumberTest {
     void should_return_wrong_display_with_invalid_number_which_length_is_longer_than_4() {
         //given
         int[] inputNumber = {1, 9, 3, 4, 6};
-        GuessNumber guessNumberGame = new GuessNumber();
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -106,7 +125,9 @@ public class GuessNumberTest {
     void should_return_wrong_display_with_has_the_same_number() {
         //given
         int[] inputNumber = {1, 1, 3, 4};
-        GuessNumber guessNumberGame = new GuessNumber();
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -118,7 +139,9 @@ public class GuessNumberTest {
     void should_return_wrong_display_with_out_of_range() {
         //given
         int[] inputNumber = {-1, 11, 3, 4};
-        GuessNumber guessNumberGame = new GuessNumber();
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
