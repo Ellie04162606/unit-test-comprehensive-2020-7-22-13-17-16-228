@@ -39,6 +39,22 @@ public class GameProcessTest {
 
         //then
         assertEquals("The game is over, you are win.", result);
+    }
 
+    @Test
+    void should_return_input_number_when_play_game_given_incorrect_number(){
+        //given
+        int[] inputNumber = {9, 2, 3, 4};
+        int[] answer = {1, 2, 3, 4};
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GameProcess gameProcess = new GameProcess(generateAnswer);
+        gameProcess.setTimes(4);
+
+        //when
+        String result = gameProcess.playGame(gameProcess.getTimes(), inputNumber);
+
+        //then
+        assertEquals("3A0B", result);
     }
 }
