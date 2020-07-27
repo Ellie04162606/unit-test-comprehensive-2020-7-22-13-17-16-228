@@ -72,4 +72,45 @@ public class GameProcessTest {
         //then
         assertEquals("Wrong Input,Input again", result);
     }
+    @Test
+    void should_return_wrong_display_when_play_game_given_invalid_number_which_length_is_longer_than_4() {
+        //given
+        int[] inputNumber = {1, 9, 3, 4, 6};
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GameProcess gameProcess = new GameProcess(generateAnswer);
+
+        //when
+        String result = gameProcess.playGame(1,inputNumber);
+        //then
+        assertEquals("Wrong Input,Input again", result);
+    }
+
+    @Test
+    void should_return_wrong_display_when_play_game_given_has_the_same_number() {
+        //given
+        int[] inputNumber = {1, 1, 3, 4};
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GameProcess gameProcess = new GameProcess(generateAnswer);
+
+        //when
+        String result = gameProcess.playGame(1,inputNumber);
+        //then
+        assertEquals("Wrong Input,Input again", result);
+    }
+
+    @Test
+    void should_return_wrong_display_when_play_game_given_out_of_range() {
+        //given
+        int[] inputNumber = {-1, 11, 3, 4};
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GameProcess gameProcess = new GameProcess(generateAnswer);
+
+        //when
+        String result = gameProcess.playGame(1,inputNumber);
+        //then
+        assertEquals("Wrong Input,Input again", result);
+    }
 }
