@@ -3,6 +3,9 @@ package example;
 import java.util.Arrays;
 
 public class GameProcess {
+    public static final String THE_GAME_IS_OVER = "The game is over";
+    public static final String WRONG_INPUT = "Wrong Input,Input again";
+    public static final String THE_GAME_IS_OVER_YOU_ARE_WIN = "The game is over, you are win.";
     public int remainingTimes = 0;
     public GuessNumber guessNumber;
     public GenerateAnswer generateAnswer;
@@ -18,14 +21,14 @@ public class GameProcess {
         this.remainingTimes++;
         String result = "";
         if (remainingTimes > 6) {
-            return "The game is over";
+            return THE_GAME_IS_OVER;
         }
         if (!checkLegal.isLegalInput(inputNumber)) {
-            return "Wrong Input,Input again";
+            return WRONG_INPUT;
         }
         result = guessNumber.guessNumber(inputNumber);
         if (Arrays.equals(inputNumber, generateAnswer.generate())) {
-            return "The game is over, you are win.";
+            return THE_GAME_IS_OVER_YOU_ARE_WIN;
         }
         return result;
     }
