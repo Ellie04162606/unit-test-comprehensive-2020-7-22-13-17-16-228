@@ -3,7 +3,7 @@ package example;
 import java.util.Arrays;
 
 public class GameProcess {
-    public int times = 0;
+    public int remainingTimes = 0;
     public GuessNumber guessNumber;
     public GenerateAnswer generateAnswer;
 
@@ -17,12 +17,12 @@ public class GameProcess {
         this.guessNumber = new GuessNumber(generateAnswer);
     }
 
-    public int getTimes() {
-        return times;
+    public int getRemainingTimes() {
+        return remainingTimes;
     }
 
-    public void setTimes(int times) {
-        this.times = times;
+    public void setRemainingTimes(int remainingTimes) {
+        this.remainingTimes = remainingTimes;
     }
 
     public String playGame(int times, int[] inputNumber) {
