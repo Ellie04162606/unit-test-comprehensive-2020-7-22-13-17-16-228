@@ -8,11 +8,6 @@ public class GameProcess {
     public GenerateAnswer generateAnswer;
     public CheckLegal checkLegal;
 
-    public GameProcess() {
-        this.generateAnswer = new GenerateAnswer();
-        this.guessNumber = new GuessNumber(generateAnswer);
-    }
-
     public GameProcess(GenerateAnswer generateAnswer) {
         this.generateAnswer = generateAnswer;
         this.guessNumber = new GuessNumber(generateAnswer);
