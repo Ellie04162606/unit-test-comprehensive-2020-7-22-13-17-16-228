@@ -27,10 +27,10 @@ public class GameProcess {
         this.remainingTimes = remainingTimes;
     }
 
-    public String playGame(int times, int[] inputNumber) {
-        times++;
+    public String playGame(int[] inputNumber) {
+        this.remainingTimes++;
         String result = "";
-        if (times > 6) {
+        if (remainingTimes > 6) {
             return "The game is over";
         }
         if (!checkLegal.isLegalInput(inputNumber)) {
