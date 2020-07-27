@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 public class GameProcessTest {
+    public int[] answer = {1, 2, 3, 4};
     @Test
     void should_return_game_over_when_play_game_given_times_is_more_than_6() {
 
@@ -56,5 +57,19 @@ public class GameProcessTest {
 
         //then
         assertEquals("3A0B", result);
+    }
+
+    @Test
+    void should_return_wrong_display_when_play_game_given_invalid_number_which_length_is_shorter_than_4() {
+        //given
+        int[] inputNumber = {1, 9};
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GameProcess gameProcess = new GameProcess(generateAnswer);
+
+        //when
+        String result = gameProcess.playGame(1,inputNumber);
+        //then
+        assertEquals("Wrong Input,Input again", result);
     }
 }
