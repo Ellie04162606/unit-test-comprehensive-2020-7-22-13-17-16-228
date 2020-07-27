@@ -6,7 +6,7 @@ import org.mockito.Mockito;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-public class GameProcessTest {
+class GameProcessTest {
     public int[] answer = {1, 2, 3, 4};
     @Test
     void should_return_game_over_when_play_game_given_times_is_more_than_6() {
