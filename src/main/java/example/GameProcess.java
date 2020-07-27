@@ -6,6 +6,7 @@ public class GameProcess {
     public int remainingTimes = 0;
     public GuessNumber guessNumber;
     public GenerateAnswer generateAnswer;
+    public CheckLegal checkLegal;
 
     public GameProcess() {
         this.generateAnswer = new GenerateAnswer();
@@ -15,6 +16,7 @@ public class GameProcess {
     public GameProcess(GenerateAnswer generateAnswer) {
         this.generateAnswer = generateAnswer;
         this.guessNumber = new GuessNumber(generateAnswer);
+        this.checkLegal = new CheckLegal();
     }
 
     public int getRemainingTimes() {
@@ -30,6 +32,9 @@ public class GameProcess {
         String result = "";
         if (times > 6) {
             return "The game is over";
+        }
+        if (!checkLegal.isLegalInput(inputNumber)) {
+            return "Wrong Input,Input again";
         }
         result = guessNumber.guessNumber(inputNumber);
         if (Arrays.equals(inputNumber, generateAnswer.generate())) {

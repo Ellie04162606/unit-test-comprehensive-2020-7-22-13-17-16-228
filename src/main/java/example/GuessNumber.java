@@ -15,9 +15,6 @@ public class GuessNumber {
         int[] answer = generateAnswer.generate();
         int a = 0;
         int b = 0;
-        if (inputNumber.length != 4) {
-            return "Wrong Input,Input again";
-        }
         if (!hasNoRepeat(inputNumber)) {
             return "Wrong Input,Input again";
         }
