@@ -19,14 +19,6 @@ public class GameProcess {
         this.checkLegal = new CheckLegal();
     }
 
-    public int getRemainingTimes() {
-        return remainingTimes;
-    }
-
-    public void setRemainingTimes(int remainingTimes) {
-        this.remainingTimes = remainingTimes;
-    }
-
     public String playGame(int[] inputNumber) {
         this.remainingTimes++;
         String result = "";

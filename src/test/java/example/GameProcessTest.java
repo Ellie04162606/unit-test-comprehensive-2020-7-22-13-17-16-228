@@ -8,16 +8,20 @@ import static org.mockito.Mockito.when;
 
 class GameProcessTest {
     public int[] answer = {1, 2, 3, 4};
+
     @Test
     void should_return_game_over_when_play_game_given_times_is_more_than_6() {
-
         //given
         int[] inputNumber = {1, 3, 4, 5};
-        GameProcess gameProcess = new GameProcess();
-        gameProcess.setRemainingTimes(7);
+        GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
+        when(generateAnswer.generate()).thenReturn(answer);
+        GameProcess gameProcess = new GameProcess(generateAnswer);
+        for (int i = 0; i < 6; i++) {
+            gameProcess.playGame(inputNumber);
+        }
 
         //when
-        String result = gameProcess.playGame(gameProcess.getRemainingTimes(), inputNumber);
+        String result = gameProcess.playGame(inputNumber);
 
         //then
         assertEquals("The game is over", result);
@@ -28,32 +32,30 @@ class GameProcessTest {
 
         //given
         int[] inputNumber = {1, 2, 3, 4};
-        int[] answer = {1, 2, 3, 4};
         GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
         when(generateAnswer.generate()).thenReturn(answer);
         GameProcess gameProcess = new GameProcess(generateAnswer);
-
-        gameProcess.setRemainingTimes(4);
-
+        for (int i = 0; i < 5; i++) {
+            gameProcess.playGame(inputNumber);
+        }
         //when
-        String result = gameProcess.playGame(gameProcess.getRemainingTimes(), inputNumber);
+        String result = gameProcess.playGame(inputNumber);
 
         //then
         assertEquals("The game is over, you are win.", result);
     }
 
     @Test
-    void should_return_input_number_when_play_game_given_incorrect_number(){
+    void should_return_input_number_when_play_game_given_incorrect_number() {
         //given
         int[] inputNumber = {9, 2, 3, 4};
         int[] answer = {1, 2, 3, 4};
         GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
         when(generateAnswer.generate()).thenReturn(answer);
         GameProcess gameProcess = new GameProcess(generateAnswer);
-        gameProcess.setRemainingTimes(4);
 
         //when
-        String result = gameProcess.playGame(gameProcess.getRemainingTimes(), inputNumber);
+        String result = gameProcess.playGame(inputNumber);
 
         //then
         assertEquals("3A0B", result);
@@ -68,10 +70,11 @@ class GameProcessTest {
         GameProcess gameProcess = new GameProcess(generateAnswer);
 
         //when
-        String result = gameProcess.playGame(1,inputNumber);
+        String result = gameProcess.playGame(inputNumber);
         //then
         assertEquals("Wrong Input,Input again", result);
     }
+
     @Test
     void should_return_wrong_display_when_play_game_given_invalid_number_which_length_is_longer_than_4() {
         //given
@@ -81,7 +84,7 @@ class GameProcessTest {
         GameProcess gameProcess = new GameProcess(generateAnswer);
 
         //when
-        String result = gameProcess.playGame(1,inputNumber);
+        String result = gameProcess.playGame(inputNumber);
         //then
         assertEquals("Wrong Input,Input again", result);
     }
@@ -95,7 +98,7 @@ class GameProcessTest {
         GameProcess gameProcess = new GameProcess(generateAnswer);
 
         //when
-        String result = gameProcess.playGame(1,inputNumber);
+        String result = gameProcess.playGame(inputNumber);
         //then
         assertEquals("Wrong Input,Input again", result);
     }
@@ -109,7 +112,7 @@ class GameProcessTest {
         GameProcess gameProcess = new GameProcess(generateAnswer);
 
         //when
-        String result = gameProcess.playGame(1,inputNumber);
+        String result = gameProcess.playGame(inputNumber);
         //then
         assertEquals("Wrong Input,Input again", result);
     }
