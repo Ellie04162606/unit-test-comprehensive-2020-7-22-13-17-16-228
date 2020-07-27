@@ -1,10 +1,8 @@
 package example;
 
-import java.util.HashSet;
 import java.util.stream.IntStream;
 
 public class GuessNumber {
-    //    int[] answer = {1, 2, 3, 4};
     GenerateAnswer generateAnswer;
 
     public GuessNumber(GenerateAnswer generateAnswer) {
