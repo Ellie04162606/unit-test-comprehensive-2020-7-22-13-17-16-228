@@ -10,10 +10,7 @@ public class CheckLegal {
         if (!hasNoRepeat(inputNumber)) {
             return false;
         }
-        if (hasNumberOutOfRange(inputNumber)) {
-            return false;
-        }
-        return true;
+        return !hasNumberOutOfRange(inputNumber);
     }
 
     private boolean hasNumberOutOfRange(int[] inputNumber) {
@@ -24,7 +21,7 @@ public class CheckLegal {
     }
 
     public static boolean hasNoRepeat(int[] array) {
-        HashSet<Integer> hashSet = new HashSet<Integer>();
+        HashSet<Integer> hashSet = new HashSet<>();
         for (int value : array) {
             hashSet.add(value);
         }
