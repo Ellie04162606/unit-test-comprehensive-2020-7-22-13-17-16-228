@@ -3,14 +3,14 @@ package example;
 import java.util.stream.IntStream;
 
 public class GuessNumber {
-    GenerateAnswer generateAnswer;
+    private int[] answer;
 
-    public GuessNumber(GenerateAnswer generateAnswer) {
-        this.generateAnswer = generateAnswer;
+    public GuessNumber(int[] answer) {
+        this.answer = answer;
     }
 
     public String guessNumber(int[] inputNumber) {
-        int[] answer = generateAnswer.generate();
+
         int a = 0;
         int b = 0;
 

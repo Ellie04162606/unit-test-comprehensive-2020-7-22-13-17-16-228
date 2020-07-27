@@ -15,7 +15,8 @@ class GuessNumberTest {
         int[] inputNumber = {1, 2, 3, 4};
         GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
         when(generateAnswer.generate()).thenReturn(answer);
-        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
+
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer.generate());
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -29,7 +30,7 @@ class GuessNumberTest {
         int[] inputNumber = {5, 6, 7, 8};
         GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
         when(generateAnswer.generate()).thenReturn(answer);
-        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer.generate());
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -43,7 +44,7 @@ class GuessNumberTest {
         int[] inputNumber = {4, 3, 2, 1};
         GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
         when(generateAnswer.generate()).thenReturn(answer);
-        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer.generate());
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -57,7 +58,7 @@ class GuessNumberTest {
         int[] inputNumber = {1, 4, 2, 3};
         GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
         when(generateAnswer.generate()).thenReturn(answer);
-        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer.generate());
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -71,7 +72,7 @@ class GuessNumberTest {
         int[] inputNumber = {3, 4, 6, 8};
         GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
         when(generateAnswer.generate()).thenReturn(answer);
-        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer.generate());
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);
@@ -85,7 +86,7 @@ class GuessNumberTest {
         int[] inputNumber = {1, 9, 3, 8};
         GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
         when(generateAnswer.generate()).thenReturn(answer);
-        GuessNumber guessNumberGame = new GuessNumber(generateAnswer);
+        GuessNumber guessNumberGame = new GuessNumber(generateAnswer.generate());
 
         //when
         String result = guessNumberGame.guessNumber(inputNumber);

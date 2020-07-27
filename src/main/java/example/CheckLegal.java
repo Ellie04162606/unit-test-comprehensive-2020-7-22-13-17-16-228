@@ -15,7 +15,8 @@ public class CheckLegal {
 
     private boolean hasNumberOutOfRange(int[] inputNumber) {
         for (int number : inputNumber) {
-            return number < 0 || number > 9;
+            if (number < 0 || number > 9)
+                return true;
         }
         return false;
     }
