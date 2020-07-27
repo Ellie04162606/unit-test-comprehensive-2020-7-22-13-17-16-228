@@ -6,7 +6,7 @@ import org.mockito.Mockito;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-public class GuessNumberTest {
+class GuessNumberTest {
     public int[] answer = {1, 2, 3, 4};
 
     @Test
