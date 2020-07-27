@@ -13,10 +13,10 @@ public class GameProcessTest {
         //given
         int[] inputNumber = {1, 3, 4, 5};
         GameProcess gameProcess = new GameProcess();
-        gameProcess.setTimes(7);
+        gameProcess.setRemainingTimes(7);
 
         //when
-        String result = gameProcess.playGame(gameProcess.getTimes(), inputNumber);
+        String result = gameProcess.playGame(gameProcess.getRemainingTimes(), inputNumber);
 
         //then
         assertEquals("The game is over", result);
@@ -32,10 +32,10 @@ public class GameProcessTest {
         when(generateAnswer.generate()).thenReturn(answer);
         GameProcess gameProcess = new GameProcess(generateAnswer);
 
-        gameProcess.setTimes(4);
+        gameProcess.setRemainingTimes(4);
 
         //when
-        String result = gameProcess.playGame(gameProcess.getTimes(), inputNumber);
+        String result = gameProcess.playGame(gameProcess.getRemainingTimes(), inputNumber);
 
         //then
         assertEquals("The game is over, you are win.", result);
@@ -49,10 +49,10 @@ public class GameProcessTest {
         GenerateAnswer generateAnswer = Mockito.mock(GenerateAnswer.class);
         when(generateAnswer.generate()).thenReturn(answer);
         GameProcess gameProcess = new GameProcess(generateAnswer);
-        gameProcess.setTimes(4);
+        gameProcess.setRemainingTimes(4);
 
         //when
-        String result = gameProcess.playGame(gameProcess.getTimes(), inputNumber);
+        String result = gameProcess.playGame(gameProcess.getRemainingTimes(), inputNumber);
 
         //then
         assertEquals("3A0B", result);
